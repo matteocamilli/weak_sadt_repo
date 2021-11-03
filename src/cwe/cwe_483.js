@@ -1,10 +1,10 @@
 
 //https://cwe.mitre.org/data/definitions/467.html
 
-const getPotentialMitigations = require("./findIssue");
-const findSwitch = require("./findSwitch");
+const getPotentialMitigations = require("./getPotentialMitigations");
+const findIndicators = require("./findIndicators");
 const indicators = require("./cwe_483_wordList");
-const isComment = require("../comments/isComment");
+const isComment = require("../comment/isComment");
 
 let issueNumber = 483
 

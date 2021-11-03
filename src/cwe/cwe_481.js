@@ -81,4 +81,4 @@ const cwe_481 = (data, comments) => {
     return errors
 }
 
-export default cwe_481
+module.exports = cwe_481

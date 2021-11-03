@@ -5,7 +5,7 @@ const findSwitch = require('./findSwitch')
 
 const issueNumber = 478
 
-export function cwe_478(data, comment) {
+const cwe_478 = (data, comment) => {
     let possibleError = findSwitch(data)
 
     let errors = {

@@ -32,3 +32,5 @@ const cwe_195 = (data, comment) => {
     }
     return errors
 }
+
+module.exports = cwe_195

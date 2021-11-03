@@ -3,6 +3,8 @@ const dataTypes = require('./cwe_467_listOfDataTypes')
 const findVariableDeclarations = require('./findVariableDeclarations')
 const findErrorsSignAndUnsignConversionError = require("./findErrorsSignAndUnsignConversionError")
 
+const issueNumber = 196
+
 const cwe_196 = (data, comment) => {
     let errorsFound = findErrorsSignAndUnsignConversionError(data, comment, findVariableDeclarations(data, dataTypes, {start: -1, end: -1}))
     let lineNumbers = []

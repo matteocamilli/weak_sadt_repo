@@ -1,5 +1,4 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
 const glob = require('@actions/glob');
 const fs = require('fs');
 const extractComments = require('./comment/extractComments')
@@ -22,17 +21,10 @@ const cwe_481 = require('./cwe/cwe_481')
 const cwe_482 = require('./cwe/cwe_482')
 const cwe_483 = require('./cwe/cwe_483')
 const cwe_484 = require('./cwe/cwe_484')
+const cwe_588 = require('./cwe/cwe_588')
 const cwe_560 = require('./cwe/cwe_560')
 const cwe_587 = require('./cwe/cwe_587')
-const cwe_588 = require('./cwe/cwe_588')
-const cwe_681 = require('./cwe/cwe_681')
-const cwe_690 = require('./cwe/cwe_690')
 const cwe_242_676 = require('./cwe/cwe_676_242')
-const cwe_781 = require('./cwe/cwe_781')
-const cwe_782 = require('./cwe/cwe_782')
-const cwe_806 = require('./cwe/cwe_806')
-const cwe_843 = require('./cwe/cwe_843')
-const cwe_910 = require('./cwe/cwe_910')
 const alignPotentialMitigations = require('./cwe/alignPotentialMitigations')
 const matchCodeAndComments = require('./comment/matchCodeAndComments')
 
@@ -52,95 +44,74 @@ const find = async () => {
 
                     errors.push(extractComments(changedData))
 
-                    const cwe_14_error = cwe_14(changedData)
-                    if(cwe_14_error.length > 0) errors.push(cwe_14_error)
-
-                    const cwe_135_error = cwe_135(changedData, errors[0])
-                    if(cwe_135_error.length > 0) errors.push(cwe_135_error)
-
-                    const cwe_188_error = cwe_188(changedData, errors[0])
-                    if(cwe_188_error.length > 0) errors.push(cwe_188_error)
-
-                    const cwe_195_error = cwe_195(changedData, errors[0])
-                    if(cwe_195_error.length > 0) errors.push(cwe_195_error)
-
-                    const cwe_196_error = cwe_196(changedData, errors[0])
-                    if(cwe_196_error.length > 0) errors.push(cwe_196_error)
-
-                    const cwe_243_error = cwe_243(changedData, errors[0])
-                    if(cwe_243_error.length > 0) errors.push(cwe_243_error)
-
-                    const cwe_244_error = cwe_244(changedData, errors[0])
-                    if(cwe_244_error.length > 0) errors.push(cwe_244_error)
-
-                    const cwe_374_error = cwe_374(changedData, errors[0])
-                    if(cwe_374_error.length > 0) errors.push(cwe_374_error)
-
-                    const cwe_375_error = cwe_375(changedData, errors[0])
-                    if(cwe_375_error.length > 0) errors.push(cwe_375_error)
-
-                    const cwe_401_error = cwe_401(changedData, errors[0])
-                    if(cwe_401_error.length > 0) errors.push(cwe_401_error)
-
-                    const cwe_415_error = cwe_415(changedData, errors[0])
-                    if(cwe_415_error.length > 0) errors.push(cwe_415_error)
-
-                    const cwe_416_error = cwe_416(changedData, errors[0])
-                    if(cwe_416_error.length > 0) errors.push(cwe_416_error)
-
-                    const cwe_467_error = cwe_467(changedData, errors[0])
-                    if(cwe_467_error.length > 0) errors.push(cwe_467_error)
-
-                    const cwe_468_error = cwe_468(changedData, errors[0])
-                    if(cwe_468_error.length > 0) errors.push(cwe_468_error)
-
-                    const cwe_478_error = cwe_478(changedData, errors[0])
-                    if(cwe_478_error.length > 0) errors.push(cwe_478_error)
-
-                    const cwe_481_error = cwe_481(changedData, errors[0])
-                    if(cwe_481_error.length > 0) errors.push(cwe_481_error)
-
-                    const cwe_482_error = cwe_482(changedData, errors[0])
-                    if(cwe_482_error.length > 0) errors.push(cwe_482_error)
-
-                    const cwe_483_error = cwe_483(changedData, errors[0])
-                    if(cwe_483_error.length > 0) errors.push(cwe_483_error)
-
-                    const cwe_484_error = cwe_484(changedData, errors[0])
-                    if(cwe_484_error.length > 0) errors.push(cwe_484_error)
-
-                    const cwe_560_error = cwe_560(changedData, errors[0])
-                    if(cwe_560_error.length > 0) errors.push(cwe_560_error)
-
-                    const cwe_587_error = cwe_587(changedData, errors[0])
-                    if(cwe_587_error.length > 0) errors.push(cwe_587_error)
-
-                    const cwe_588_error = cwe_588(changedData, errors[0])
-                    if(cwe_588_error.length > 0) errors.push(cwe_588_error)
-
-                    const cwe_681_error = cwe_681(changedData, errors[0])
-                    if(cwe_681_error.length > 0) errors.push(cwe_681_error)
-
-                    const cwe_690_error = cwe_690(changedData, errors[0])
-                    if(cwe_690_error.length > 0) errors.push(cwe_690_error)
-
-                    const cwe_781_error = cwe_781(changedData, errors[0])
-                    if(cwe_781_error.length > 0) errors.push(cwe_781_error)
-
-                    const cwe_782_error = cwe_782(changedData, errors[0])
-                    if(cwe_782_error.length > 0) errors.push(cwe_782_error)
-
-                    const cwe_806_error = cwe_806(changedData, errors[0])
-                    if(cwe_806_error.length > 0) errors.push(cwe_806_error)
-
-                    const cwe_843_error = cwe_843(changedData, errors[0])
-                    if(cwe_843_error.length > 0) errors.push(cwe_843_error)
-
-                    const cwe_910_error = cwe_910(changedData, errors[0])
-                    if(cwe_910_error.length > 0) errors.push(cwe_910_error)
-
                     const cwe_242_676_error = cwe_242_676(changedData, errors[0])
                     if(cwe_242_676_error.lineNumbers.length > 0) errors.push(cwe_242_676_error)
+
+                    const cwe_14_error = cwe_14(changedData)
+                    if(cwe_14_error.lineNumbers.length > 0) errors.push(cwe_14_error)
+
+                    const cwe_135_error = cwe_135(changedData, errors[0])
+                    if(cwe_135_error.lineNumbers.length > 0) errors.push(cwe_135_error)
+
+                    const cwe_188_error = cwe_188(changedData, errors[0])
+                    if(cwe_188_error.lineNumbers.length > 0) errors.push(cwe_188_error)
+
+                    const cwe_195_error = cwe_195(changedData, errors[0])
+                    if(cwe_195_error.lineNumbers.length > 0) errors.push(cwe_195_error)
+
+                    const cwe_196_error = cwe_196(changedData, errors[0])
+                    if(cwe_196_error.lineNumbers.length > 0) errors.push(cwe_196_error)
+
+                    const cwe_243_error = cwe_243(changedData, errors[0])
+                    if(cwe_243_error.lineNumbers.length > 0) errors.push(cwe_243_error)
+
+                    const cwe_244_error = cwe_244(changedData, errors[0])
+                    if(cwe_244_error.lineNumbers.length > 0) errors.push(cwe_244_error)
+
+                    const cwe_374_error = cwe_374(changedData, errors[0])
+                    if(cwe_374_error.lineNumbers.length > 0) errors.push(cwe_374_error)
+
+                    const cwe_375_error = cwe_375(changedData, errors[0])
+                    if(cwe_375_error.lineNumbers.length > 0) errors.push(cwe_375_error)
+
+                    const cwe_401_error = cwe_401(changedData, errors[0])
+                    if(cwe_401_error.lineNumbers.length > 0) errors.push(cwe_401_error)
+
+                    const cwe_415_error = cwe_415(changedData, errors[0])
+                    if(cwe_415_error.lineNumbers.length > 0) errors.push(cwe_415_error)
+
+                    const cwe_416_error = cwe_416(changedData, errors[0])
+                    if(cwe_416_error.lineNumbers.length > 0) errors.push(cwe_416_error)
+
+                    const cwe_467_error = cwe_467(changedData, errors[0])
+                    if(cwe_467_error.lineNumbers.length > 0) errors.push(cwe_467_error)
+
+                    const cwe_468_error = cwe_468(changedData, errors[0])
+                    if(cwe_468_error.lineNumbers.length > 0) errors.push(cwe_468_error)
+
+                    const cwe_478_error = cwe_478(changedData, errors[0])
+                    if(cwe_478_error.lineNumbers.length > 0) errors.push(cwe_478_error)
+
+                    const cwe_481_error = cwe_481(changedData, errors[0])
+                    if(cwe_481_error.lineNumbers.length > 0) errors.push(cwe_481_error)
+
+                    const cwe_482_error = cwe_482(changedData, errors[0])
+                    if(cwe_482_error.lineNumbers.length > 0) errors.push(cwe_482_error)
+
+                    const cwe_483_error = cwe_483(changedData, errors[0])
+                    if(cwe_483_error.lineNumbers.length > 0) errors.push(cwe_483_error)
+
+                    const cwe_484_error = cwe_484(changedData, errors[0])
+                    if(cwe_484_error.lineNumbers.length > 0) errors.push(cwe_484_error)
+
+                    const cwe_588_error = cwe_588(changedData, errors[0])
+                    if(cwe_588_error.lineNumbers.length > 0) errors.push(cwe_588_error)
+
+                    const cwe_560_error = cwe_560(changedData, errors[0])
+                    if(cwe_560_error.lineNumbers.length > 0) errors.push(cwe_560_error)
+
+                    const cwe_587_error = cwe_587(changedData, errors[0])
+                    if(cwe_587_error.lineNumbers.length > 0) errors.push(cwe_587_error)
 
                     errors.map((error, index) => {
                         if(index > 0) {

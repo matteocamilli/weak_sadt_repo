@@ -30,4 +30,4 @@ const findErrors = (data, comments, umasks) => {
     return result
 }
 
-export default cwe_560
+module.exports = cwe_560

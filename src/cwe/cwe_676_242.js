@@ -6,7 +6,6 @@ const cwe676242WordList = require('./cwe_676_242_wordlist')
 const isComment = require('./../comment/isComment')
 const findFunctions = require('./findFunctions')
 
-
 const issueNumber = 676
 const issueNumberMerge = 242
 
@@ -33,8 +32,6 @@ const cwe_676_242 = (data, comment) => {
 
     return errors
 }
-
-
 
 
 module.exports = cwe_676_242

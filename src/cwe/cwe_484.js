@@ -1,12 +1,12 @@
 // https://cwe.mitre.org/data/definitions/484.html
 
-const getPotentialMitigations = require("./findIssue");
+const getPotentialMitigations = require("./getPotentialMitigations");
 const findSwitch = require("./findSwitch");
-const isComment = require("../comments/isComment");
+const isComment = require("../comment/isComment");
 
 const issueNumber = 484
 
-export function cwe_484(data, comment) {
+const cwe_484 = (data, comment) => {
     let possibleError = findSwitch(data)
 
     let errors = {

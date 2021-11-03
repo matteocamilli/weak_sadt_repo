@@ -4,8 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "ncc build src/index",
-    "test": "node src/test.js"
+    "build": "ncc build src/index"
   },
   "repository": {
     "type": "git"
