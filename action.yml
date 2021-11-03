@@ -1,0 +1,5 @@
+name: 'finding technical debt'
+description: 'automatically detect flaws within source code'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
